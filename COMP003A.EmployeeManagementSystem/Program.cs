@@ -19,8 +19,12 @@ namespace COMP003A.EmployeeManagementSystem
                 string last_n;
                 double salary;
 
-                Console.WriteLine("Enter Employee ID: ");
+                Console.Write("Enter Employee ID: ");
                 employId = Console.ReadLine();
+                Console.Write("Enter First Name: ");
+                first_n = Console.ReadLine();
+                Console.Write("Enter Middle Name: ");
+                mid_n = Console.ReadLine();
 
             }
             //Employee newEmployee = new Employee("8347261", "Zaid", "Rojas",500.00, "Nemesis");
