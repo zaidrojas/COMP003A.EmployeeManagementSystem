@@ -7,14 +7,37 @@ using System.Threading.Tasks;
 namespace COMP003A.EmployeeManagementSystem
 {
 
-    class ITDepartment
+    interface IDepartmentOperations
     {
+        void Operate();
+    }
+
+
+    class ITDepartment: Department, IDepartmentOperations
+    {
+        public override string GetDepartmentDetails()
+        {
+            return "Manages technical resources and infrastructure.";
+        }
+
+        public void Operate()
+        {
+            Console.WriteLine("Performing IT operations...");
+        }
 
     }
 
-    class HRDepartment
+    class HRDepartment: Department, IDepartmentOperations
     {
+        public override string GetDepartmentDetails()
+        {
+            return "Handles employee relations and recruitment.";
+        }
 
+        public void Operate()
+        {
+            Console.WriteLine("Performing HR operations...");
+        }
     }
 
     abstract class Department
@@ -22,11 +45,7 @@ namespace COMP003A.EmployeeManagementSystem
         // Fields
         public string DepartmentName { get; set; }
 
-        public void GetDepartmentDetails()
-        {
-
-            return 
-        }
+        public abstract string GetDepartmentDetails();
 
         public void DisplayDepartmentInfo()
         {
