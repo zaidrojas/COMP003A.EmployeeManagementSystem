@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace COMP003A.EmployeeManagementSystem
 {
@@ -25,6 +26,11 @@ namespace COMP003A.EmployeeManagementSystem
             Console.WriteLine("Performing IT operations...");
         }
 
+        public ITDepartment()
+        {
+            Name = "IT";
+        }
+
     }
 
     class HRDepartment: Department, IDepartmentOperations
@@ -38,6 +44,11 @@ namespace COMP003A.EmployeeManagementSystem
         {
             Console.WriteLine("Performing HR operations...");
         }
+
+        public HRDepartment()
+        {
+            Name = "HR";
+        }
     }
 
     abstract class Department
@@ -49,7 +60,7 @@ namespace COMP003A.EmployeeManagementSystem
 
         public void DisplayDepartmentInfo()
         {
-
+            Console.WriteLine($"Department: {Name}");
         }
 
 
