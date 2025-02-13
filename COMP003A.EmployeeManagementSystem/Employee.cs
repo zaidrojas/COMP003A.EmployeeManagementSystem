@@ -26,9 +26,8 @@ namespace COMP003A.EmployeeManagementSystem
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Cannot contain Null or Whitespace");
+                    _firstName = value;
                 }
-                _firstName = value;
             }
         }
         public string MiddleName
@@ -36,11 +35,10 @@ namespace COMP003A.EmployeeManagementSystem
             get { return _middleName; }
             set
             {
-                if (value == null)
+                if (value != null)
                 {
-                    throw new ArgumentException("Cannot be null.");
+                    _middleName = value;
                 }
-                _middleName = value;
             }
         }
         public string LastName
@@ -50,9 +48,8 @@ namespace COMP003A.EmployeeManagementSystem
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Cannot contain Null or Whitespace");
+                    _lastName = value;
                 }
-                _lastName = value;
             }
         }
         public double Salary
@@ -60,11 +57,11 @@ namespace COMP003A.EmployeeManagementSystem
             get { return _salary; }
             set
             {
-                if (value < 0)
+                if (value > 0)
                 {
-                    throw new ArgumentException("Cannot be less than 0");
+                    _salary = value;
                 }
-                _salary = value;
+
             }
         }
 
