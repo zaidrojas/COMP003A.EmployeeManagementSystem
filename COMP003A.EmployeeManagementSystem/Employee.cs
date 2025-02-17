@@ -31,10 +31,11 @@ namespace COMP003A.EmployeeManagementSystem
             get { return _firstName; }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    _firstName = value;
+                    throw new ArgumentException("First name cannot be empty or whitespace.");
                 }
+                _firstName = value;
             }
         }
         /// <summary>
@@ -47,7 +48,7 @@ namespace COMP003A.EmployeeManagementSystem
             {
                 if (value != null)
                 {
-                    _middleName = value;
+                    _middleName = value ?? string.Empty;
                 }
             }
         }
@@ -59,10 +60,11 @@ namespace COMP003A.EmployeeManagementSystem
             get { return _lastName; }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    _lastName = value;
+                    throw new ArgumentException("Last name cannot be empty or whitespace.");
                 }
+                _lastName = value;
             }
         }
         /// <summary>
@@ -73,10 +75,11 @@ namespace COMP003A.EmployeeManagementSystem
             get { return _salary; }
             set
             {
-                if (value > 0)
+                if (value <= 0)
                 {
-                    _salary = value;
+                    throw new ArgumentException("Salary must be a positive value.");
                 }
+                _salary = value;
 
             }
         }
@@ -87,10 +90,10 @@ namespace COMP003A.EmployeeManagementSystem
         public Employee (string employeeId, string firstName, string lastName, double salary, string middleName = "")
         {
             _employeeId = employeeId;
-            _firstName = firstName;
-            _middleName = middleName;
-            _lastName = lastName;
-            _salary = salary;
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+            Salary = salary;
         }
 
         /// <summary>
@@ -98,7 +101,14 @@ namespace COMP003A.EmployeeManagementSystem
         /// </summary>
         public void PrintFullName()
         {
-            Console.WriteLine($"Name: {_firstName} {_middleName} {_lastName}");
+            if (string.IsNullOrWhiteSpace(_middleName))
+            {
+                Console.WriteLine($"Name: {_firstName} {_lastName}");
+            }
+            else
+            {
+                Console.WriteLine($"Name: {_firstName} {_middleName} {_lastName}");
+            }
         }
 
         /// <summary>
