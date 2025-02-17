@@ -25,7 +25,7 @@ namespace COMP003A.EmployeeManagementSystem
                 employId = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(employId))
                 {
-                    Console.WriteLine("No nulls or white space.");
+                    Console.WriteLine("No nulls or white space.\n");
                     continue;
                 }
 
@@ -34,7 +34,7 @@ namespace COMP003A.EmployeeManagementSystem
                 try
                 {
                     if (string.IsNullOrWhiteSpace(first_n))
-                    { throw new ArgumentException("First names cannot be empty."); }
+                    { throw new ArgumentException("First names cannot be empty.\n"); }
                 }
                 catch (ArgumentException ex)
                 {
@@ -51,7 +51,7 @@ namespace COMP003A.EmployeeManagementSystem
                 try
                 {
                     if (string.IsNullOrWhiteSpace(last_n))
-                    { throw new ArgumentException("Last names cannot be empty."); }
+                    { throw new ArgumentException("Last names cannot be empty.\n"); }
                 }
                 catch (ArgumentException ex)
                 {
@@ -64,7 +64,7 @@ namespace COMP003A.EmployeeManagementSystem
                 {
                     if (!double.TryParse(Console.ReadLine(), out salary) || salary <= 0)
                     {
-                        throw new ArgumentException("Salary must be a positive number.");
+                        throw new ArgumentException("Salary must be a positive number.\n");
                     }
                 }
                 catch (ArgumentException ex)
